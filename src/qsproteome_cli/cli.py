@@ -33,8 +33,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = HelpOnErrorArgumentParser(
         prog="qsproteome",
         description=(
-            "Command-line client for the documented QSProteome API "
-            "and widget preview servers"
+            "Command-line client for the documented QSProteome API and widget preview servers"
         ),
         formatter_class=argparse.RawTextHelpFormatter,
     )
@@ -241,9 +240,7 @@ def _print_contextual_help(parser: argparse.ArgumentParser, args: argparse.Names
     if args.command is None:
         parser.print_help()
         return True
-    subparsers_action = next(
-        action for action in parser._actions if action.dest == "command"
-    )
+    subparsers_action = next(action for action in parser._actions if action.dest == "command")
     if args.command in {"lookup", "serve"} and getattr(args, f"{args.command}_command") is None:
         choices = getattr(subparsers_action, "choices", {})
         choices[args.command].print_help()
