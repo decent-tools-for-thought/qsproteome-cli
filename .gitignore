@@ -1,0 +1,7 @@
+*.pyc
+/PROJECT_OUTLINE.md
+/build/
+/dist/
+*.egg-info/
+.venv/
+QUALITY_ROADMAP.md
