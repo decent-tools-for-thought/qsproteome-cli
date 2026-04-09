@@ -23,6 +23,7 @@ Documentation = "https://qsproteome.org/api-usage"
 dev = [
   "build>=1.2.2",
   "mypy>=1.18.2",
+  "pre-commit>=4.3.0",
   "pytest>=8.4.2",
   "ruff>=0.13.3",
 ]

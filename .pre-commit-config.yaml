@@ -1,18 +1,11 @@
 repos:
-  - repo: local
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.5
     hooks:
       - id: ruff-format
-        name: Ruff format
-        entry: bash -lc 'UV_CACHE_DIR=/tmp/uv-cache TMPDIR=/tmp uv run ruff format "$@"' --
-        language: system
-        types_or: [python, pyi]
-      - id: ruff-check-fix
-        name: Ruff check --fix
-        entry: bash -lc 'UV_CACHE_DIR=/tmp/uv-cache TMPDIR=/tmp uv run ruff check --fix "$@"' --
-        language: system
-        types_or: [python, pyi]
-      - id: no-merge-conflicts
-        name: No merge conflict markers
-        entry: bash -lc 'for f in "$@"; do if [ -f "$f" ] && rg -n "^(<<<<<<<|=======|>>>>>>>)" "$f"; then exit 1; fi; done' --
-        language: system
-        pass_filenames: true
+      - id: ruff-check
+        args: [--fix]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-merge-conflict
