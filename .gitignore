@@ -5,3 +5,4 @@
 *.egg-info/
 .venv/
 QUALITY_ROADMAP.md
+.codex
